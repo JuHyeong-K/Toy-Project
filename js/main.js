@@ -83,7 +83,7 @@ const getTodos = () => {
 document.addEventListener("DOMContentLoaded", getTodos);
 // 등록 클릭 시 등록 모달창 display
 $mainSubmit.onclick = () => {
-  $modalUploadLayer.style.display = 'inherit'
+  $modalUploadLayer.style.display = 'block'
 };
 // x버튼, 레이어 클릭시 모달창 none
 const closeUploadModal = () => {
@@ -238,13 +238,9 @@ const $mainInput = document.querySelector('.main-input');
 $mainInput.oninput = () => {
   const $liItems = document.querySelectorAll('.li-item');
   $liItems.forEach(liItem => {
-    let name = liItem.querySelector(".li-title");
-    let calender = liItem.querySelector(".li-date");
-    if (name.innerHTML.indexOf($mainInput.value) > -1 || calender.innerHTML.indexOf($mainInput.value) > -1) {
-      liItem.style.display = 'block';
-    } else{
-      liItem.style.display = 'none';
-    }
+    const name = liItem.querySelector(".li-title");
+    const calender = liItem.querySelector(".li-date");
+    liItem.style.display = name.textContent.indexOf($mainInput.value) !== -1 || calender.textContent.indexOf($mainInput.value) !== -1 ? 'block' : 'none';
   })
 }
 // 모달창 + 이미지 선택시 이미지 업로드 기능
