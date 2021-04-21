@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 const $mainItems = document.querySelector('.main-items');
 const $main = document.querySelector('.main');
 const $detail = document.querySelector('.detail');
